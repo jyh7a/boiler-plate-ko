@@ -34,12 +34,14 @@ app.get('/api/hello', (req, res) => {
 })
 
 // 회원가입을 위한 Router
-app.post('/register', (req, res) => {
+app.post('/api/users/register', (req, res) => {
   // 회원 가입 할때 필요한 정보들을 client에서 가져오면
   // 그것을 데이터 베이스에 넣어준다.
 
   const user = new User(req.body)
+
   console.log('user :', user)
+  
   // save is mongoDB method 
   user.save((err, userInfo) => {
     if(err) return res.json({sucess: false, err})
@@ -103,7 +105,7 @@ app.get('/api/users/logout', auth, (req, res) => {
     (err, user) => {
       if(err) return res.json({sucess: false, err})
       return res.status(200).send({
-        sucess: true
+        success: true
       })
     })
 })

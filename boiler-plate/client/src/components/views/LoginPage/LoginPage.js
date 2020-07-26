@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux'
 import {loginUser} from '../../../_actions/user_action'
+import {withRouter} from 'react-router-dom'
 
 const LoginPage = (props) => {
   const centerDiv = {display:'flex', justifyContent:'center', alignItems: 'center', width:'100%', height:'100vh'}
@@ -20,8 +21,6 @@ const LoginPage = (props) => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault()
-    // console.log(Email)
-    // console.log(Password)
     let body={
       email: Email,
       password: Password
@@ -55,4 +54,4 @@ const LoginPage = (props) => {
   );
 };
 
-export default LoginPage;
+export default withRouter(LoginPage);
