@@ -8,4 +8,4 @@ React, Redux, NodeJs, MongoDB, AntDesign
   4. If the homepage doesn't appear you need to connect to localhost:3000  
 
 # Screen shot
-![K-003](https://user-images.githubusercontent.com/40563068/88487596-9a256080-cfc1-11ea-85ae-9eb43e74f97a.png)
+![K-002](https://user-images.githubusercontent.com/40563068/88487658-161fa880-cfc2-11ea-9ee8-d6b17b7861ff.png)
