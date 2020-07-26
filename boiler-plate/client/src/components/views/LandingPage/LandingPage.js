@@ -90,7 +90,7 @@ const LandingPage = (props) => {
         <div className="site-layout-background" style={{ padding: 24, minHeight: 380, height: 'calc(100vh - 64px)', display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column' }}>
          {/* <HomeTwoTone style={{transform:'scale(2)'}}/> */}
          <PandaIcon style={{ fontSize: '100px', marginBottom:'2rem' }} />
-         <h1>안녕하세요 NodeJs 와 MonggoDB, React 를 이용하여 로그인 시스템을 구현해보았습니다.</h1>
+         <h1>안녕하세요 NodeJs 와 MongoDB, React 를 이용하여 로그인 시스템을 구현해보았습니다.</h1>
          <p>상단 네비의 Register를 클릭하여 아이디 생성후 로그인 테스트를 해보세요~!</p>
          <Button
           type="primary"
