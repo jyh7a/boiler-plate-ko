@@ -1,5 +1,6 @@
 # I used
-React, Redux, NodeJs, MongoDB, AntDesign
+React, Redux, NodeJs, MongoDB, AntDesign  
+react-app-polyfill => Also available in IE11
 
 # Getting started
   1. Download this project  
