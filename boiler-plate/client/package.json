@@ -10,6 +10,7 @@
     "axios": "^0.19.2",
     "http-proxy-middleware": "^1.0.5",
     "react": "^16.13.1",
+    "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
@@ -36,7 +37,11 @@
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "ie 11",
+      "ie 9-11",
+      "ie > 9",
+      "last 100 ie version"
     ]
   }
 }

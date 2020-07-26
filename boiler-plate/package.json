@@ -12,6 +12,7 @@
   "author": "YoungHun Jeong",
   "license": "ISC",
   "dependencies": {
+    "@ant-design/icons": "^4.2.1",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "concurrently": "^5.2.0",
