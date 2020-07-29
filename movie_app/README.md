@@ -12,4 +12,5 @@ react-app-polyfill => Also available in IE11
   6. If the homepage doesn't appear you need to connect to localhost:3000  
 
 # Screen shot
-![K-002](https://user-images.githubusercontent.com/40563068/88487658-161fa880-cfc2-11ea-9ee8-d6b17b7861ff.png)
+![K-001](https://user-images.githubusercontent.com/40563068/88760761-a7507400-d1a8-11ea-9df2-5f6ac6597fcf.png)
+
