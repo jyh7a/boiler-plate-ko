@@ -3,3 +3,9 @@ node_modules
 
 #dev.js
 dev.js
+
+#mp4
+*.mp4
+
+#png
+youtube/uploads/thumbnails/

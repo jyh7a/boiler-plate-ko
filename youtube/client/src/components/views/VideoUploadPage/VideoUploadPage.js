@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Typography, Button, Form, message, Input, Icon} from 'antd'
 import Dropzone from 'react-dropzone'
+import Axios from 'axios'
 
 const {TextArea} = Input
 const {Title} = Typography
@@ -23,6 +24,9 @@ function VideoUploadPage() {
   const [DescriptionTitle, setDescriptionTitle] = useState("")
   const [Private, setPrivate] = useState(0)
   const [Cateogry, setCateogry] = useState("Film & Animation")
+  const [FilePath, setFilePath] = useState("")
+  const [Duration, setDuration] = useState("")
+  const [ThumbnailPath, setThumbnailPath] = useState("")
 
   const onTitleChange = (e) => {
     setVidoeTitle(e.currentTarget.value)
@@ -39,6 +43,40 @@ function VideoUploadPage() {
   const onCategoryChange = (e) => {
     setCateogry(e.currentTarget.value)
   }
+
+  const onDrop = (files) => {
+    let formData = new FormData
+    const config = {
+      header: {'content-type': 'mltipart/form-data'}
+    }
+    formData.append('file', files[0])
+
+    Axios.post('/api/video/uploadfiles', formData, config)
+    .then(res => {
+    if(res.data.success){
+      // console.log(res.data)
+
+      const variable = {
+        url: res.data.url,
+        fileName: res.data.fileName
+      }
+
+      setFilePath(res.data.url)
+
+      Axios.post('/api/video/thumbnail', variable)
+      .then(res => {
+        if(res.data.success){
+          setDuration(res.data.fileDuration)
+          setThumbnailPath(res.data.url)
+        }else{
+          alert('썸네일 생성에 실패 했습니다.')
+        }
+      })
+    }else{
+      alert('비디오 업로드를 실패했습니다.??')
+    }
+    })
+  }
   
 
   return (
@@ -47,14 +85,14 @@ function VideoUploadPage() {
         <Title level={2}>Upload Vidoe</Title>
       </div>
 
-      <Form onSubmit>
+      <Form >
         <div style={{display:'flex', justifyContent:'space-between'}}>
 
           {/* Drop zone */}
           <Dropzone
-          onDrop
-          multiple
-          maxSize
+          onDrop={onDrop}
+          multiple={false}
+          maxSize={1000000000}
           >
           {({getRootProps, getInputProps}) => (
             <div style={{width:'300px', height:'240px', border:'1px solid lightgray', display:'flex', alignItems:'center', justifyContent:'center'}} {...getRootProps()}>
@@ -65,14 +103,17 @@ function VideoUploadPage() {
           </Dropzone>
 
           {/* Thumnail */}
-          <div>
-            <img/>
-          </div>
+          {ThumbnailPath && 
+           <div>
+             <img src={`http://localhost:5000/${ThumbnailPath}`} alt="thumbnail"/>
+           </div>
+          }
+         
         </div>
 
         <br/>
         <br/>
-        <lable>Title</lable>
+        <label>Title</label>
         <Input 
           onChange={onTitleChange}
           value={VidoeTitle}
@@ -80,7 +121,7 @@ function VideoUploadPage() {
 
         <br/>
         <br/>
-        <lable>Description</lable>
+        <label>Description</label>
         <TextArea 
           onChange={onDescriptionChange}
           value={DescriptionTitle}
