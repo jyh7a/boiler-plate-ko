@@ -7,7 +7,7 @@ const { Subscribe } = require("../models/Subscriber");
 //             Subscribe
 //=================================
 
-router.post('subscribeNumber', (req, res) => {
+router.post('/subscribeNumber', (req, res) => {
   
   Subscribe.find({'userTo': req.body.userTo})
   .exec((err, subscribe) => {
@@ -18,7 +18,7 @@ router.post('subscribeNumber', (req, res) => {
 })
 
 
-router.post('subscribed', (req, res) => {
+router.post('/subscribed', (req, res) => {
   
   Subscribe.find({
     'userTo': req.body.userTo,
@@ -30,6 +30,29 @@ router.post('subscribed', (req, res) => {
       result = true
     }
     res.status(200).json({success: true, subscribed: result})
+  })
+
+})
+
+
+router.post('/unSubscribe', (req, res) => {
+  
+  Subscribe.findOneAndDelete({userTo: req.body.userTo, userFrom: req.body.userFrom})
+  .exec((err, doc) => {
+    if(err) return res.status(400).json({success:false, err})
+    return res.status(200).json({success:true, doc})
+  })
+
+})
+
+
+router.post('/Subscribe', (req, res) => {
+  
+  const subscribe = new Subscribe(req.body)
+
+  subscribe.save((err, doc) => {
+    if(err) return res.status(400).json({success:false, err})
+    res.status(200).json({success:true})
   })
 
 })
