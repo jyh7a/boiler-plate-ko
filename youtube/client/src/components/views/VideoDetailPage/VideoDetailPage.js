@@ -29,7 +29,7 @@ function VideoDetailPage(props) {
 
   if(VideoDetail.writer){
     return (
-      <Row gutter={[16, 16]}>
+      <Row gutter={[16, 16]} style={{margin:0}}>
 
         <Col lg={18} xs={24}>
           <div style={{width:'100%', padding:'3rem 4rem',  height:'calc(100vh - 140px)'}}>
