@@ -51,7 +51,8 @@ function Subscribe(props) {
       Axios.post('/api/subscribe/unSubscribe', subscribedVariable)
         .then(res => {
           if(res.data.success){
-
+            setSubscribeNumber(SubscribeNumber - 1)
+            setSubscribed(!Subscribed)
           }else{
             alert('구독 취소 하는데 실패 했습니다.')
           }
@@ -63,7 +64,8 @@ function Subscribe(props) {
       Axios.post('/api/subscribe/Subscribe', subscribedVariable)
       .then(res => {
         if(res.data.success){
-
+          setSubscribeNumber(SubscribeNumber + 1)
+          setSubscribed(!Subscribed)
         }else{
           alert('구독 하는데 실패 했습니다.')
         }
@@ -79,7 +81,7 @@ function Subscribe(props) {
         style={{backgroundColor:`${Subscribed ? '#aaa' : '#cc0000'}`, borderRadius:'4px', color:'white', padding:'10px 16px', fontWeight:'500', fontSize:'1rem', textTransform:'uppercase', border:'none', cursor:'pointer'}}
         onClick={onSubscribe}
       >
-        {SubscribeNumber} {Subscribed ? 'Subscribed' : 'Subscribe'}
+        {SubscribeNumber} {Subscribed ? 'UnSubscribe' : 'Subscribe'}
       </button>
     </div>
   )
