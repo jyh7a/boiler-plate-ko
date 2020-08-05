@@ -1,6 +1,8 @@
 import React , {useState} from 'react'
 import Axios from 'axios'
 import {useSelector} from 'react-redux'
+import SingleComment from './SingleComment'
+import ReplyComment from './ReplyComment'
 
 function Comment(props) {
 
@@ -25,6 +27,8 @@ function Comment(props) {
       .then(res => {
         if(res.data.success){
           console.log(res.data.result)
+          setCommentValue('')
+          props.refreshFunction(res.data.result)
         }else{
           alert('saveComment 실패 하였습니다.')
         }
@@ -37,7 +41,18 @@ function Comment(props) {
       <p>Replies</p>
       <hr/>
 
+
       {/* Comment Lists */}
+
+      {props.commentLists && props.commentLists.map((comment, index) => (
+        (!comment.responseTo &&
+          <React.Fragment key={index}>
+            <SingleComment refreshFunction={props.refreshFunction} comment={comment} postId={props.postId} />
+            <ReplyComment refreshFunction={props.refreshFunction} parentCommentId={comment._id} postId={props.postId} commentLists={props.commentLists} />  
+          </React.Fragment>
+        )
+      ))}
+
 
 
       {/* Root Comment Form */}
