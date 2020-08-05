@@ -19,7 +19,6 @@ function SubscriptionPage() {
     Axios.post('/api/video/getSubscriptionVideos', subscriptionVariables)
     .then(res => {
       if(res.data.success){
-        console.log(res)
         setVideo(res.data.videos)
       }else{
         alert('구독한 비디오 가져오기를 실패 했습니다.')

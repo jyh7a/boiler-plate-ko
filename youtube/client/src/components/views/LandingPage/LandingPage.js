@@ -13,7 +13,6 @@ function LandingPage() {
     Axios.get('/api/video/getVideos')
     .then(res => {
       if(res.data.success){
-        console.log(res.data)
         setVideo(res.data.videos)
       }else{
         alert('비디오 가져오기를 실패 했습니다.')
