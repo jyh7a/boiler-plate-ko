@@ -14,7 +14,7 @@ react-app-polyfill => Also available in IE11
   6. If the homepage doesn't appear you need to connect to localhost:3000  
 
 # Screen shot
-![K-001](https://user-images.githubusercontent.com/40563068/88760761-a7507400-d1a8-11ea-9df2-5f6ac6597fcf.png)
+![K-001](https://user-images.githubusercontent.com/40563068/89728257-eca55900-da66-11ea-9963-a3abad46c9e2.png)
 
 # This project was built on the basis of John Ahn's React + Node project.
 
