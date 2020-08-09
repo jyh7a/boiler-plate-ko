@@ -6,8 +6,8 @@ react-app-polyfill => Also available in IE11
 # Getting started
   1. Download this project  
     1-1. you must join mongodb ( https://www.mongodb.com/ )
-  2. Change directory to movie_app
-    2-1. move server/config and create dev.js ans export your mongoURI
+  2. Change directory to movie_app  
+    2-1. move server/config and create dev.js ans export your mongoURI  
     ex. module.exports = {  mongoURI: 'yourMongoURI' }
   3. $ npm install, change directory to client and $ npm install
   4. Change directory to movie_app  
